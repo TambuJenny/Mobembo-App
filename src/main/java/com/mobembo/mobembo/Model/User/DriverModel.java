@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 import com.mobembo.mobembo.Model.PersonModel;
 
+import org.springframework.lang.Nullable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,10 +26,27 @@ public class DriverModel {
     private String Id;
 
     private String NumeroCarta;
-    
+    @Nullable
+    private String Senha;
+    private boolean ActiveAccount; 
+
     @OneToOne(cascade = CascadeType.ALL)
     private PersonModel Pessoa;
+    
+    public String getSenha() {
+        return Senha;
+    }
+    public void setSenha(String senha) {
+        Senha = senha;
+    }
 
+    public boolean isActiveAccount() {
+        return ActiveAccount;
+    }
+    public void setActiveAccount(boolean activeAccount) {
+        ActiveAccount = activeAccount;
+    }
+    
     public PersonModel getPessoa() {
         return Pessoa;
     }

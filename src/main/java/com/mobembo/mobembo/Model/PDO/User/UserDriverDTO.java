@@ -1,5 +1,6 @@
 package com.mobembo.mobembo.Model.PDO.User;
 
+
 import com.mobembo.mobembo.Model.Enum.GenreEnum;
 
 import org.springframework.lang.Nullable;
@@ -12,11 +13,19 @@ public class UserDriverDTO {
     private String Morada;
     private GenreEnum Genero;
     private String Email;
+    private String BI;
 
     @Nullable
     private String Senha;
+    private boolean ContaAtivo;
 
 
+    public boolean isContaAtivo() {
+        return ContaAtivo;
+    }
+    public void setContaAtivo(boolean contaAtivo) {
+        ContaAtivo = contaAtivo;
+    }
     public String getSenha() {
         return Senha;
     }
@@ -58,6 +67,12 @@ public class UserDriverDTO {
     }
     public void setEmail(String email) {
         Email = email;
+    }
+    public String getBI() {
+        return BI;
+    }
+    public void setBI(String bI) {
+        BI = bI;
     }
 
 }

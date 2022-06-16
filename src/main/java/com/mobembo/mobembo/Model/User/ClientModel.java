@@ -9,6 +9,8 @@ import javax.persistence.Table;
 
 import com.mobembo.mobembo.Model.PersonModel;
 
+import org.springframework.lang.Nullable;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,12 +26,29 @@ public class ClientModel {
 
     @javax.persistence.Id
     private String Id;
+    @Nullable
+    private String Senha;
+    private boolean ActiveAccount; 
 
     @OneToOne(cascade = CascadeType.ALL)
     private PersonModel Pessoa;
 
     private LocalDateTime CreateDate = LocalDateTime.now() ;
     private LocalDateTime UpdateDate = LocalDateTime.now() ;
+
+    public String getSenha() {
+        return Senha;
+    }
+    public void setSenha(String senha) {
+        Senha = senha;
+    }
+
+    public boolean isActiveAccount() {
+        return ActiveAccount;
+    }
+    public void setActiveAccount(boolean activeAccount) {
+        ActiveAccount = activeAccount;
+    }
 
     public LocalDateTime getCreateDate() {
         return CreateDate;
