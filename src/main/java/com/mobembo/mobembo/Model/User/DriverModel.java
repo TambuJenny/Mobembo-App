@@ -1,10 +1,8 @@
 package com.mobembo.mobembo.Model.User;
 
-import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -24,12 +22,11 @@ import lombok.NoArgsConstructor;
 public class DriverModel {
     
     @javax.persistence.Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID Id;
+    private String Id;
 
     private String NumeroCarta;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private PersonModel Pessoa;
 
     public PersonModel getPessoa() {
@@ -38,10 +35,10 @@ public class DriverModel {
     public void setPessoa(PersonModel pessoa) {
         Pessoa = pessoa;
     }
-    public UUID getId() {
+    public String getId() {
         return Id;
     }
-    public void setId(UUID id) {
+    public void setId(String id) {
         Id = id;
     }
     public String getNumeroCarta() {

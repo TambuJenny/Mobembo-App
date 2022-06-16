@@ -1,7 +1,8 @@
 package com.mobembo.mobembo.Model.User;
 
-import java.util.UUID;
+import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,21 +16,47 @@ public class MaterialGoodModel {
     
     @Id
     @GeneratedValue
-    private UUID Id;
+    private String Id;
 
     private String Cor;
     private float Peso;
     private String Descricao;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private ClientModel Cliente;
 
+    private LocalDateTime CreateDate = LocalDateTime.now() ;
+    private LocalDateTime UpdateDate = LocalDateTime.now() ;
 
-    public UUID getId() {
+    public ClientModel getCliente() {
+        return Cliente;
+    }
+
+    public void setCliente(ClientModel cliente) {
+        Cliente = cliente;
+    }
+
+    public LocalDateTime getCreateDate() {
+        return CreateDate;
+    }
+
+    public void setCreateDate(LocalDateTime createDate) {
+        CreateDate = createDate;
+    }
+
+    public LocalDateTime getUpdateDate() {
+        return UpdateDate;
+    }
+
+    public void setUpdateDate(LocalDateTime updateDate) {
+        UpdateDate = updateDate;
+    }
+
+    public String getId() {
         return Id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         Id = id;
     }
 
