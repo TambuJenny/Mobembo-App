@@ -1,27 +1,9 @@
-package com.mobembo.mobembo.Model.Admin;
-
-import java.time.LocalDateTime;
-
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+package com.mobembo.mobembo.Model.Request.Admin;
 
 import com.mobembo.mobembo.Model.Enum.StateTravelEnum;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
-@Table(name = "Travel")
-public class TravelModel {
+public class TravelRequest {
     
-    @javax.persistence.Id
-    private String Id;
-
     private String Origin ;
     private String Destino ;
     private String DiaSemana;
@@ -32,12 +14,7 @@ public class TravelModel {
     private StateTravelEnum EstadoViagem;
     private float PrecoNormal;
     private float PrecoVip;
-
-    @OneToOne()
-    private UserAdminModel Admin;
-
-    private LocalDateTime CreateDate = LocalDateTime.now() ;
-    private LocalDateTime UpdateDate = LocalDateTime.now() ;
+    private String IdAdmin;
 
     public String getMes() {
         return Mes;
@@ -51,11 +28,12 @@ public class TravelModel {
     public void setAno(int ano) {
         Ano = ano;
     }
-    public String getId() {
-        return Id;
+
+    public String getIdAdmin() {
+        return IdAdmin;
     }
-    public void setId(String id) {
-        Id = id;
+    public void setIdAdmin(String idAdmin) {
+        IdAdmin = idAdmin;
     }
     public String getOrigin() {
         return Origin;
@@ -81,6 +59,18 @@ public class TravelModel {
     public void setHoraPartida(String horaPartida) {
         HoraPartida = horaPartida;
     }
+    public int getDia() {
+        return Dia;
+    }
+    public void setDia(int dia) {
+        Dia = dia;
+    }
+    public StateTravelEnum getEstadoViagem() {
+        return EstadoViagem;
+    }
+    public void setEstadoViagem(StateTravelEnum estadoViagem) {
+        EstadoViagem = estadoViagem;
+    }
     public float getPrecoNormal() {
         return PrecoNormal;
     }
@@ -93,37 +83,5 @@ public class TravelModel {
     public void setPrecoVip(float precoVip) {
         PrecoVip = precoVip;
     }
-    public UserAdminModel getAdmin() {
-        return Admin;
-    }
-    public void setAdmin(UserAdminModel admin) {
-        Admin = admin;
-    }
-    public LocalDateTime getCreateDate() {
-        return CreateDate;
-    }
-    public void setCreateDate(LocalDateTime createDate) {
-        CreateDate = createDate;
-    }
-    public LocalDateTime getUpdateDate() {
-        return UpdateDate;
-    }
-    public void setUpdateDate(LocalDateTime updateDate) {
-        UpdateDate = updateDate;
-    }
 
-    public StateTravelEnum getEstadoViagem() {
-        return EstadoViagem;
-    }
-    public void setEstadoViagem(StateTravelEnum estadoViagem) {
-        EstadoViagem = estadoViagem;
-    }
-
-    public int getDia() {
-        return Dia;
-    }
-    public void setDia(int dia) {
-        Dia = dia;
-    }
-    
 }

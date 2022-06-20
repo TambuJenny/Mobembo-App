@@ -35,8 +35,9 @@ public class UserAdminController {
    }
 
    @DeleteMapping("/{id}")
-    public ResponseEntity<PersonModel> Delete(@PathVariable String id) {
-       return null;
+    public ResponseEntity<UserAdminDTO> Delete(@PathVariable String id) {
+    
+        return  _userAdminService.Delete(id);
    }
 
    @GetMapping("/{id}")
