@@ -1,9 +1,8 @@
-package com.mobembo.mobembo.Controller.User;
-
-import java.util.List;
+package com.mobembo.mobembo.Controller.Admin;
 
 import com.mobembo.mobembo.Model.PersonModel;
-import com.mobembo.mobembo.Service.User.UserClientService;
+import com.mobembo.mobembo.Model.PDO.Admin.UserAdminDTO;
+import com.mobembo.mobembo.Service.Admin.UserAdminService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,37 +16,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/user/UserClient")
-public class UserClientController {
-
+@RequestMapping("/api/admin/useradmin")
+public class UserAdminController {
+    
     @Autowired
-    private UserClientService _UserClientService;
+    private UserAdminService _userAdminService;
 
     @PostMapping
-    public PersonModel Create( @RequestBody PersonModel personModel) {
-         _UserClientService.Create(personModel);
-        return personModel;
+    public ResponseEntity<UserAdminDTO> Create( @RequestBody UserAdminDTO adminRequest) {
+
+        return  _userAdminService.Create(adminRequest);
     }
 
     @PutMapping
-    public PersonModel update( @RequestBody PersonModel personModel) {
-        _UserClientService.Update(personModel);
-       return personModel;
+    public ResponseEntity<UserAdminDTO> update( @RequestBody PersonModel personModel) {
+       
+       return null;
    }
 
    @DeleteMapping("/{id}")
     public ResponseEntity<PersonModel> Delete(@PathVariable String id) {
-       return _UserClientService.Delete(id);
+       return null;
    }
 
    @GetMapping("/{id}")
-   public ResponseEntity<PersonModel> GetById(@PathVariable String id) {
-        return _UserClientService.GetById(id);
+   public ResponseEntity<UserAdminDTO> GetById(@PathVariable String id) {
+        return _userAdminService.GetById(id);
    }
 
-   @GetMapping("/getall")
+  /* @GetMapping("/getall")
    public ResponseEntity<List<PersonModel>> GetAll() {
         return _UserClientService.GetAll();
-   }
+   }*/
 
 }

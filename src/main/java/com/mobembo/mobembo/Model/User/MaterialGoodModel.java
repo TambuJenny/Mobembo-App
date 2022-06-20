@@ -22,7 +22,7 @@ public class MaterialGoodModel {
     private float Peso;
     private String Descricao;
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     private ClientModel Cliente;
 
     private LocalDateTime CreateDate = LocalDateTime.now() ;

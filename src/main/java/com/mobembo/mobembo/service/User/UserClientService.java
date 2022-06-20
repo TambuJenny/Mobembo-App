@@ -1,4 +1,4 @@
-package com.mobembo.mobembo.service.User;
+package com.mobembo.mobembo.Service.User;
 
 import java.util.ArrayList;
 import java.util.List;
