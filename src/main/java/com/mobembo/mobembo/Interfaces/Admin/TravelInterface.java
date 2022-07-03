@@ -15,5 +15,6 @@ public interface TravelInterface {
     ResponseEntity<TravelRequest> GetById(String idViagem);
     ResponseEntity<List<TravelResponse>> GetAllAtivo();
     ResponseEntity<List<TravelResponse>> GetAll();
+    ResponseEntity<List<TravelResponse>> UpdateAll();
     ResponseEntity<List<TravelResponse>> GetAllByIdAdmin(String idAdmin);
 }

@@ -32,7 +32,8 @@ public class TravelModel {
     private StateTravelEnum EstadoViagem;
     private float PrecoNormal;
     private float PrecoVip;
-
+    private int Lugar; 
+  
     @OneToOne()
     private UserAdminModel Admin;
 
@@ -124,6 +125,12 @@ public class TravelModel {
     }
     public void setDia(int dia) {
         Dia = dia;
+    }
+    public int getLugar() {
+        return Lugar;
+    }
+    public void setLugar(int lugar) {
+        Lugar = lugar;
     }
     
 }

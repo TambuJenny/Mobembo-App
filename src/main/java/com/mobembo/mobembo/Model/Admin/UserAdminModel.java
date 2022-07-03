@@ -21,7 +21,7 @@ public class UserAdminModel {
     @javax.persistence.Id
     private String Id;
     private String Senha;
-    private SessionEnum EstadoSessão  = SessionEnum.Ativo;
+    private SessionEnum EstadoSessão;
     
   
 

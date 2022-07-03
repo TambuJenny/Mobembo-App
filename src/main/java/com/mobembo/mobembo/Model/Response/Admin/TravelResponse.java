@@ -16,7 +16,14 @@ public class TravelResponse {
     private float PrecoNormal;
     private float PrecoVip;
     private String IdAdmin;
-    
+    private int Lugar; 
+
+    public int getLugar() {
+        return Lugar;
+    }
+    public void setLugar(int lugar) {
+        Lugar = lugar;
+    }
     public String getId() {
         return Id;
     }

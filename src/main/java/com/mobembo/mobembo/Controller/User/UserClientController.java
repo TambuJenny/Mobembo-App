@@ -7,6 +7,7 @@ import com.mobembo.mobembo.Service.User.UserClientService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,11 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/user/UserClient")
+@CrossOrigin(origins = "http://localhost:9191")
 public class UserClientController {
 
     @Autowired
     private UserClientService _UserClientService;
 
+    @CrossOrigin(origins = "*")
     @PostMapping
     public PersonModel Create( @RequestBody PersonModel personModel) {
          _UserClientService.Create(personModel);

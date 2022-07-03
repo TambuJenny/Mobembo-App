@@ -8,6 +8,7 @@ import com.mobembo.mobembo.Service.Admin.TravelService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/admin/travel")
+@CrossOrigin(origins = "*" )
 public class TravelController {
     
     @Autowired
@@ -53,8 +55,13 @@ public class TravelController {
         return _travelService.GetAll();
    }
 
-   @GetMapping("/admin")
+   @GetMapping("/getbyadmin")
    public ResponseEntity<List<TravelResponse>> GetAllByIdAdmin(@RequestHeader("IdAmin") String idAdmin ) {
         return _travelService.GetAllByIdAdmin(idAdmin);
+   }
+
+   @GetMapping("/UpdateAll")
+   public ResponseEntity<List<TravelResponse>> UpdateAll(@RequestHeader("IdAmin") String idAdmin ) {
+        return _travelService.UpdateAll();
    }
 }
